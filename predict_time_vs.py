@@ -42,3 +42,17 @@ def predict_time(estimators, df, fitted,xlabs=x_labs,ylab='signal6',n_iter=50,n_
     
     columns = ['Trial ' + str(i+1) for i in range(n_iter)]
     return pd.DataFrame(times, columns = columns, index = range(1,len(estimators)+1))
+	
+	
+def main():
+	from sklearn.linear_model import LinearRegression
+	from sklearn import svm
+	lr = LinearRegression()
+	sv = svm.LinearSVC(dual = False)
+
+	test = predict_time([lr,sv],df_test,False,x_labs)
+	print(test)
+	
+	
+if __name__ == '__main__':
+	main()
