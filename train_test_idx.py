@@ -22,8 +22,8 @@ def my_train_test_idx(DF,xlabs=['OI_a1'],ylabs=['signal6'],return_df=False,n_day
     train_test_idx=[]
     prev=0
     for idx,val in enumerate(bounds[:-1]):
-        train_id = range(prev,val)
-        test_id = range(val,b[idx+1])
+        train_id = np.arange(prev,val)
+        test_id = np.arange(val,bounds[idx+1])
         prev = val
         train_test_idx.append((train_id,test_id))
     
